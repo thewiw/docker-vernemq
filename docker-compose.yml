@@ -1,0 +1,24 @@
+services:
+  vernemq:
+    image: thewiwcorp/vernemq:2.1.2
+    build:
+        context: .
+        args:
+          - ERLANG_VERSION=28
+          - VERNEMQ_RELEASE=2.1.2
+        tags:
+          - thewiwcorp/vernemq:latest
+          - thewiwcorp/vernemq:eulafree-2.1.2
+          - thewiwcorp/vernemq:eulafree-latest
+  vernemq-alpine:
+    image: thewiwcorp/vernemq:alpine-2.1.2
+    build:
+        context: .
+        dockerfile: Dockerfile.alpine
+        args:
+          - ERLANG_VERSION=28
+          - VERNEMQ_RELEASE=2.1.2
+        tags:
+          - thewiwcorp/vernemq:alpine-latest
+          - thewiwcorp/vernemq:eulafree-alpine-2.1.2
+          - thewiwcorp/vernemq:eulafree-alpine-latest
